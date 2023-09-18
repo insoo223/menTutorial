@@ -19,13 +19,13 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
 /**
  * Listen on provided port, on all network interfaces.
  */
 // https://nodejs.org/api/net.html 
 // Start a server listening for connections.
 server.listen(port);
+
 // 'error' is an event defined at Net module
 // https://nodejs.org/api/net.html#event-error
 // Event of Class: net.Server, Emitted when an error occurs.
@@ -39,6 +39,9 @@ server.on('error', onError);
 // https://www.freecodecamp.org/news/build-a-secure-server-with-node-and-express/
 // A listening event listener is also registered, logging the port or named pipe on which the server is running to the console.
 server.on('listening', onListening);
+debug('host addr family: ', server.address().family);
+debug('host addr address: ', server.address().address);
+debug('host addr port: ', server.address().port);
 
 /**
  * Normalize a port into a number, string, or false.
